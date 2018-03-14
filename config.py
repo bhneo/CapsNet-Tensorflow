@@ -12,6 +12,9 @@ flags.DEFINE_float('m_plus', 0.9, 'the parameter of m plus')
 flags.DEFINE_float('m_minus', 0.1, 'the parameter of m minus')
 flags.DEFINE_float('lambda_val', 0.5, 'down weight of the loss for absent digit classes')
 
+# For reconstruct loss
+flags.DEFINE_boolean('with_reconstruct', True, 'use the true label to mask out target capsule or not')
+
 # for training
 flags.DEFINE_integer('batch_size', 128, 'batch size')
 flags.DEFINE_integer('epoch', 50, 'epoch')

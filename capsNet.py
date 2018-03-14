@@ -31,7 +31,7 @@ class CapsNet(object):
                 # t_vars = tf.trainable_variables()
                 self.global_step = tf.Variable(0, name='global_step', trainable=False)
                 self.optimizer = tf.train.AdamOptimizer()
-                self.train_op = self.optimizer.minimize(self.total_loss, global_step=self.global_step)  # var_list=t_vars)
+                self.train_op = self.optimizer.minimize(self.margin_loss if cfg.with_reconstruct else self.total_loss , global_step=self.global_step)  # var_list=t_vars)
             else:
                 self.X = tf.placeholder(tf.float32, shape=(cfg.batch_size, 28, 28, 1))
                 self.labels = tf.placeholder(tf.int32, shape=(cfg.batch_size, ))
